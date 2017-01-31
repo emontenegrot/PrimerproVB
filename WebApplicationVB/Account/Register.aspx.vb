@@ -21,11 +21,12 @@ Partial Public Class Register
             ' Dim callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request)
             ' manager.SendEmail(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=""" & callbackUrl & """>aquí</a>.")
 
-            signInManager.SignIn(user, isPersistent := False, rememberBrowser := False)
+            signInManager.SignIn(user, isPersistent:=False, rememberBrowser:=False)
             IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
         Else
             ErrorMessage.Text = result.Errors.FirstOrDefault()
         End If
     End Sub
+
 End Class
 
